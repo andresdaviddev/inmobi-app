@@ -1,6 +1,6 @@
 // obteniendo todos los elementos html necesarios
 const btn = document.getElementById("btn-signup");
-const btn2 = document.getElementById("btn-loggin");
+const btn2 = document.getElementById("btn-login");
 const forgot = document.getElementById("forgot-password");
 const padre = document.getElementById("back.card");
 const hijo1 = document.getElementById("front-card");
@@ -13,7 +13,7 @@ btn.addEventListener("click", () => {
   hijo2.style.display = "flex";
   hijo3.style.display = "none";
 });
-// evento para cambiar a => (loggin card)
+// evento para cambiar a => (login card)
 btn2.addEventListener("click", () => {
   hijo2.style.display = "none";
   hijo1.style.display = "flex";
