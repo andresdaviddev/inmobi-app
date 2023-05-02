@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/loggin.css" />
+    <title>login</title>
+</head>
+
+<body>
+    <!-- info content(button, tittle, logo) -->
+    <div class="info">
+        <div class="info-img-title">
+            <h1>Inmobi</h1>
+            <img src="images/logo.jpeg" alt="logo" />
+        </div>
+        <p>
+            Bienvenido a Inmobi, el sitio donde puedes comprar y vender propiedades
+            inmobiliarias. Nos enorgullece ofrecer a nuestros
+            usuarios una manera más fácil y sencilla de encontrar o vender tu
+            proxima propiedade desde casa.
+        </p>
+        <!-- botones paneles (signup y loggin) -->
+        <button class="button-signUp" id="btn-signup">Create An Account</button>
+        <button class="button-loggin" id="btn-loggin">Loggin</button>
+    </div>
+
+    <!-- carta trasera (contenedor padre)-->
+    <div class="back-card" id="back-card">
+        <!-- carta frontal (todo el contenido) -->
+        <div class="front-card" id="front-card">
+            <!-- contenedor del logo -->
+            <div class="logo">
+                <img src="images/logo.jpeg" alt="logo" />
+            </div>
+            <!-- contenedor de los inputs del formulario -->
+            <div class="inputs">
+                <form class="inputs">
+                    <label for="username">User Name</label>
+                    <input type="text" name="username" id="username" placeholder="enter your user name" required />
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="enter your password" required />
+                    <input type="submit" value="Loggin" id="submit" />
+                </form>
+            </div>
+            <!-- contenedor de los links -->
+            <div class="links">
+                <a id="forgot-password">¿Forgot Your Password?</a>
+            </div>
+        </div>
+
+        <!-- ----------------------------  -->
+
+        <!-- carta create new account (todo el contenido) -->
+        <div class="front-card-new" id="front-card-new">
+            <!-- contenedor del logo -->
+            <div class="logo">
+                <img src="images/logo.jpeg" alt="logo" />
+            </div>
+            <!-- contenedor de los inputs del formulario -->
+            <div class="inputs-new">
+                <form class="inputs-new">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" placeholder="enter your name" required />
+
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" placeholder="enter your last name" required />
+
+                    <label for="">Mail</label>
+                    <input type="mail" name="mailsignup" placeholder="enter your mail" required />
+
+                    <label for="username">User Name</label>
+                    <input type="text" name="usernamesignup" placeholder="enter your user name" required />
+
+                    <label for="password">Password</label>
+                    <input type="password" name="passwordsignup" placeholder="enter your password" required />
+
+                    <input type="submit" value="Sign Up" />
+                </form>
+            </div>
+        </div>
+
+        <!-- ----------------------------  -->
+
+        <!-- carta olvidó contraseña(todo el contenido) -->
+        <div class="front-card-forgot" id="front-card-forgot">
+            <!-- contenedor del logo -->
+            <div class="logo">
+                <img src="images/logo.jpeg" alt="logo" />
+            </div>
+            <!-- contenedor de los inputs del formulario -->
+            <div class="inputs-forgot">
+                <form class="inputs-forgot">
+                    <div class="info-forgot">
+                        <p>Enter your email for recover your password</p>
+                    </div>
+
+                    <label for="mailforgot">Mail</label>
+                    <input type="mail" name="mailforgot" placeholder="enter your mail" required="true" />
+
+                    <input type="submit" value="Recover" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="scrips/loggin.js"></script>
+</body>
+
+</html>
