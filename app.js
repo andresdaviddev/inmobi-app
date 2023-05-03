@@ -6,7 +6,8 @@ const ejs = require('ejs');
 const app = express();
 const port = 3000;
 // requiriendo vistas
-const rutalogin = require('./src/routes/rutalogin');
+const rutalogin = require('./src/routes/login.route');
+const rutahome = require('./src/routes/home.route');
 
 // express settings
 app.set('view engine', 'ejs');
@@ -16,7 +17,7 @@ app.use(morgan('dev'));
 
 // usando vistas requeridas/importadas
 app.use(rutalogin);
-
+app.use(rutahome);
 
 // escuha del server
 app.listen(port, ()=>{console.log(`server on port ${port}`)});
