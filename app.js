@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const path = require('path');
 const ejs = require('ejs');
 const app = express();
-const port = 3000
+const port = 3000;
 // requiriendo vistas
 const rutalogin = require('./src/routes/rutalogin');
 
