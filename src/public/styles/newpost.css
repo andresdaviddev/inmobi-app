@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.side-bar{
+    width: 100%;
+    height: 100%;
+}
+
+.content-main{
+    display: flex;
+    position: absolute;
+    width: calc(100% - 240px);
+    height: 100%;
+    /* background-color: lightgrey; */
+    top: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content{
+    position: relative;
+    width: 85%;
+    height: 85%;
+    outline: 1px solid gray;
+    border-radius: 5px;
+}
+
+#preview-image{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+#textarea{
+    height: 200px;
+}
+
+input[type="submit"]{
+    position: absolute;
+    width: 120px;
+    bottom: 20px;
+    left: 20px;
+}

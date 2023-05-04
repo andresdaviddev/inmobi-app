@@ -6,4 +6,5 @@ app.get("/", controller.home);
 
 app.get("/profile", controller.profile);
 
+app.all("/newpost", controller.newpost);
 module.exports = app;
