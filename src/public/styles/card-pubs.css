@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* estilos de la tarjeta */
+.card {
+  width: 350px;
+  height: 470px;
+  background-color: #e0e1dd;
+}
+
+.btn{
+  width: 120px;
+}
+
+#title::before{
+  content: "Price: ";
+  color: rgb(11, 94, 215);
+}

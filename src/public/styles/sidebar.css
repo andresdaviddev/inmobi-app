@@ -56,7 +56,7 @@
   user-select: none;
 }
 
-a {
+.link > a {
   text-decoration: none;
   color: black;
   font-weight: 600;

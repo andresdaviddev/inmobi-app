@@ -1,24 +1,55 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    background-color: white;
+body {
+  width: 100%;
+  background-color: white;
 }
 
-.main-content{
-    width: 100%;
-    height: 100%;
-    background-color: antiquewhite;
+.side-bar {
+  width: 100%;
+  height: 100%;
+  background-color: white;
 }
 
-.side-bar{
-    width: 100%;
-    height: 100%;
+/* contenido principal (publicaiones/etc) */
+.main-content {
+  position: absolute;
+  width: calc(100% - 240px);
+  height: 100%;
+  top: 0;
+  right: 0;
+  /* background-color: lightgreen; */
 }
 
+/* estilos del contenedor de publicaiones */
+.pubs-content {
+  display: flex;
+  width: 70%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+.card-content {
+  width: 18rem;
+  height: 572px;
+}
+
+.info-create-pub{
+  position: absolute;
+  width: 18rem;
+  top: 20px;
+  right: 28px;
+  position: fixed !important;
+}
+
+.card{
+  user-select: none;
+}

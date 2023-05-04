@@ -1,15 +1,37 @@
 <%- include('partials/header')%>
-<link rel="stylesheet" href="styles/home.css">
-<title>Inmobi</title>
-</head>
-<body>
+    <link rel="stylesheet" href="styles/home.css">
+    <title>Inmobi</title>
+    </head>
+
+    <body>
+        <!-- utilizando la side bar importada -->
         <div class="side-bar">
             <%- include('partials/sidebar')%>
         </div>
-        
+        <!-- todo el contenido(publicaiones etc) -->
         <div class="main-content">
-            <h2>new pubs</h2>
+            <!-- contenedor de las cards de las publicaiones -->
+            <div class="pubs-content">
+
+                <% for(let i=0; i < 6; i++){%>
+                    <div class="card-content">
+                        <%- include('partials/card-pubs')%>
+                    </div>
+                    <% }%>
+
+            </div>
+
+            <div class="info-create-pub">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Andrés Pacheco Cuadro</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">New Post</a>
+                    </div>
+                  </div>
+            </div>
         </div>
 
-</body>
-</html>
+    </body>
+
+    </html>
