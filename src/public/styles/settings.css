@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+.main-content{
+    position: absolute;
+    width: calc(100% - 240px);
+    height: 100%;
+    background-color: lightgreen;
+    top: 0;
+    right: 0;
+}
