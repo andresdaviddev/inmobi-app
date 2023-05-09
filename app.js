@@ -19,11 +19,10 @@ app.set("views", path.join(__dirname, "src/views"));
 app.use(express.static("src/public"));
 app.use(morgan("dev"));
 app.use(session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
+  secret: "my-secret-key",
+  resave: false,
+  saveUninitialized: false
+}));
 
 // usando vistas requeridas/importadas
 app.use(rutalogin);

@@ -4,14 +4,18 @@ const fotos = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqsi5nR3sVUY8F_dMHijF2SfWwEH4S00c3hw&usqp=CAU"
 ];
 
+
+
 const controller = {
   home: (req, res) => {
+    const username = req.session.username;
     let foto = Math.random() * 3;
     foto = Math.floor(foto);
     console.log(foto);
     res.render("home", {
       nombre: "Andres David Pacheco Cuadro",
       img: fotos[foto],
+      data: username
     });
   },
   profile: (req, res) => {

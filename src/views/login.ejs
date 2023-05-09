@@ -37,12 +37,13 @@
             </div>
             <!-- contenedor de los inputs del formulario -->
             <div class="inputs">
-                <form class="inputs">
-                    <label for="username">User Name</label>
-                    <input type="text" name="username" id="username" placeholder="enter your user name" required />
-                    <label for="password">Password</label>
+                <form class="inputs" action="/login" method="post">
+
+                    <input type="text" name="username" id="username" placeholder="enter your user name" autofocus
+                        required />
                     <input type="password" name="password" id="password" placeholder="enter your password" required />
                     <input type="submit" value="Log In" id="submit" />
+
                 </form>
             </div>
             <!-- contenedor de los links -->
@@ -62,19 +63,14 @@
             <!-- contenedor de los inputs del formulario -->
             <div class="inputs-new">
                 <form class="inputs-new" action="/login" method="post">
-                    <label for="name">Name</label>
                     <input type="text" name="name" placeholder="enter your name" required />
 
-                    <label for="lastname">Last Name</label>
                     <input type="text" name="lastname" placeholder="enter your last name" required />
 
-                    <label for="">Mail</label>
                     <input type="mail" name="mailsignup" placeholder="enter your mail" required />
 
-                    <label for="username">User Name</label>
                     <input type="text" name="usernamesignup" placeholder="enter your user name" required />
 
-                    <label for="password">Password</label>
                     <input type="password" name="passwordsignup" placeholder="enter your password" required />
 
                     <input type="submit" value="Sign Up" />
@@ -97,7 +93,6 @@
                         <p>Enter your email for recover your password</p>
                     </div>
 
-                    <label for="mailforgot">Mail</label>
                     <input type="mail" name="mailforgot" placeholder="enter your mail" required="true" />
 
                     <input type="submit" value="Recover" />
