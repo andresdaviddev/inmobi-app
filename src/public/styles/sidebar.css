@@ -62,8 +62,10 @@
   font-weight: 600;
   user-select: none;
   transition: all 0.4s;
+  font-size: 18px;
 }
 
 i {
+  font-size: 18px;
   margin-right: 8px;
 }
