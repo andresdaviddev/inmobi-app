@@ -31,10 +31,16 @@
     </div>
 
     <% if (typeof success_msg !=='undefined' && success_msg.length> 0) { %>
-        <div class="alert alert-success" id="success-alert" role="alert">
+        <div class="alert alert-primary" id="success-alert" role="alert">
             <%= success_msg %>
         </div>
         <%} %>
+
+        <% if (typeof error_msg !=='undefined' && error_msg.length> 0) { %>
+            <div class="alert alert-warning" id="success-alert" role="alert">
+                <%= error_msg %>
+            </div>
+            <%} %>
 
             <!-- carta trasera (contenedor padre)-->
             <div class="back-card" id="back-card">

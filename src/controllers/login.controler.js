@@ -26,7 +26,8 @@ const controller = {
         res.redirect("/");
       } else {
         // Las credenciales son incorrectas, por lo que renderiza la página de inicio de sesión nuevamente
-        res.render("login");
+        req.flash("error_msg", "Usuario y/o contraseñas incorrectos");
+        res.redirect("login");
       }
       // registro de usuarios
     } else {
