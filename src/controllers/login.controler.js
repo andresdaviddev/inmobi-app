@@ -6,10 +6,9 @@ const controller = {
   },
 
   loginPost: async (req, res) => {
-    
     if (req.body.username) {
       const { username, password } = req.body;
-      
+
       const persona = {
         username,
         password,
@@ -50,7 +49,7 @@ const controller = {
           persona.passwordsignup,
         ]
       );
-
+      req.flash("success_msg", "Te has registrado exitosamente");
       res.redirect("login");
     }
   },

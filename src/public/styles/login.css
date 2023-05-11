@@ -24,7 +24,7 @@ body {
 }
 /* info content */
 .info {
-  width: 400px;
+  width: 450px;
   height: 400px;
   user-select: none;
   /* outline: 1px solid black; */
@@ -59,13 +59,14 @@ body {
 }
 
 .info > button {
-  width: 150px;
+  width: 200px;
   height: 35px;
   border: 2px solid #48e;
   border-radius: 3px;
   transition: all 0.6s;
   margin-top: 28px;
-  font-weight: 700;
+  font-weight: 600;
+  padding: 4px;
 }
 
 .info > button:hover {
@@ -327,3 +328,16 @@ input[name="mailforgot"]:focus {
   font-weight: 700;
 }
 /* <----------( final )-------------> */
+
+/* alertas */
+#success-alert{
+  display: flex;
+  height: 110px;
+  position: absolute;
+  top: 50px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  z-index: 9999;
+}

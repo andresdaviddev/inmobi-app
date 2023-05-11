@@ -24,3 +24,7 @@ forgot.addEventListener("click", () => {
   hijo1.style.display = "none";
   hijo3.style.display = "flex";
 });
+
+setTimeout(function() {
+  document.querySelector('#success-alert').style.display = 'none';
+}, 3000); // Oculta la alerta después de 5 segundos

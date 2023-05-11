@@ -4,18 +4,17 @@ const fotos = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqsi5nR3sVUY8F_dMHijF2SfWwEH4S00c3hw&usqp=CAU"
 ];
 
-
-
+const statements = require('../db/statements');
 const controller = {
-  home: (req, res) => {
-    const username = req.session.username;
+  home: async(req, res) => {
+    const fullName = await statements.getFullName(req, res);
     let foto = Math.random() * 3;
     foto = Math.floor(foto);
     console.log(foto);
     res.render("home", {
       nombre: "Andres David Pacheco Cuadro",
       img: fotos[foto],
-      data: username
+      fullname: fullName.nombre + " " + fullName.apellido
     });
   },
   profile: (req, res) => {
@@ -24,8 +23,11 @@ const controller = {
   newpost: (req, res) => {
     res.render("newpost");
   },
-  settings: (req, res) => {
-    res.render("settings");
+  settings: async(req, res) => {
+    const fullName = await statements.getFullName(req, res);
+    res.render("settings",{
+      fullname: fullName.nombre + " " + fullName.apellido
+    });
   },
 };
 
