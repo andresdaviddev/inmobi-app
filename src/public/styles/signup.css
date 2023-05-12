@@ -21,7 +21,7 @@ body {
     rgba(0, 212, 255, 1) 100%
   );
 }
-/*carta trasera */
+
 .back-card {
   position: relative;
   width: 400px;
@@ -64,43 +64,78 @@ body {
   outline: 1px solid #48e;
   box-shadow: 9px 10px 70px -4px #48e;
 }
-/*contenedor de los inputs del formulario */
+
 .inputs {
   margin-top: 30px;
   width: 100%;
-  height: 270px;
+  height: 400px;
+  margin-bottom: 10px;
   /* outline: 1px solid black; */
 }
 
-.inputs > form {
+.inputs-signup {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 90%;
+  height: 100%;
   /* outline: 1px solid black; */
 }
 
-input[name="username"] {
+input[name="name"] {
   height: 40px;
   width: 90%;
   border: 2px solid #48e;
   border-radius: 5px;
 }
 
-input[name="username"]:focus {
+input[name="name"]:focus {
   outline: 0 !important;
 }
 
-input[name="password"] {
+input[name="lastname"] {
   height: 40px;
   width: 90%;
   border: 2px solid #48e;
   border-radius: 5px;
 }
 
-input[name="password"]:focus {
+input[name="lastname"]:focus {
+  outline: 0 !important;
+}
+
+input[name="usernamesignup"] {
+  height: 40px;
+  width: 90%;
+  border: 2px solid #48e;
+  border-radius: 5px;
+}
+
+input[name="usernamesignup"]:focus {
+  outline: 0 !important;
+}
+
+input[name="passwordsignup"] {
+  height: 40px;
+  width: 90%;
+  border: 2px solid #48e;
+  border-radius: 5px;
+}
+
+input[name="passwordsignup"]:focus {
+  outline: 0 !important;
+}
+
+input[name="mailsignup"] {
+  height: 40px;
+  width: 90%;
+  border: 2px solid #48e;
+  border-radius: 5px;
+}
+
+input[name="mailsignup"]:focus {
   outline: 0 !important;
 }
 
@@ -117,7 +152,6 @@ input[type="submit"]:hover {
   background-color: #48e;
   color: whitesmoke;
 }
-
 /* <----------( final )-------------> */
 
 /* alertas */

@@ -23,7 +23,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
 app.use(express.static("src/public"));
 app.use(morgan("dev"));
-
 app.use(multer({
   dest: path.join(__dirname + "/src/public/uploads")
 }).single('image'))
@@ -35,7 +34,7 @@ app.use(session({
 }));
 // varibales globales
 app.use((req, res, next) => {
-  res.locals.success_msg = req.flash('success_msg');
+  res.locals.exito = req.flash('exito');
   res.locals.error_msg = req.flash('error_msg');
   next();
 });
