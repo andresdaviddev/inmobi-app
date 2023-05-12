@@ -3,6 +3,7 @@ const express = require("express");
 const morgan = require("morgan");
 const session = require("express-session");
 const flash = require('connect-flash');
+const multer = require('multer');
 const path = require("path");
 const ejs = require("ejs");
 const app = express();
@@ -22,7 +23,10 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
 app.use(express.static("src/public"));
 app.use(morgan("dev"));
-// 
+
+app.use(multer({
+  dest: path.join(__dirname + "/src/public/uploads")
+}).single('image'))
 // express session
 app.use(session({
   secret: 'secret',

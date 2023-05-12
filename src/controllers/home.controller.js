@@ -7,6 +7,10 @@ const fotos = [
 const statements = require("../db/statements");
 const conn = require("../db/bd.controller");
 const controller = {
+  index: (req, res) => {
+    res.render('index');
+  },
+
   home: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     let foto = Math.random() * 3;
@@ -16,15 +20,33 @@ const controller = {
       fullname: fullName.nombre + " " + fullName.apellido,
     });
   },
+
   profile: (req, res) => {
     res.render("profile");
   },
+
   newpost: (req, res) => {
     res.render("newpost");
   },
-  newpostPost: (req, res) => {
+  // insercion de un nuevo post
+  newpostPost: async (req, res) => {
+    const fullName = await statements.getFullName(req, res);
+    const id_persona = fullName.id_persona;
+    const img = req.file.filename;
+    const precio = req.body.price;
+    const descripcion = req.body.descripcion;
+    const extension = req.file.originalname.split('.').pop(); // obtiene la extensión del archivo
+    const result = conn.query("INSERT INTO posts (img,precio,descripcion,id_persona) VALUES (?,?,?,?)", [img + '.' + extension, precio, descripcion, id_persona]);
 
+    if (result) {
+      res.redirect('home');
+    } else {
+      res.send('error ')
+    }
+    // console.log(req.file);
+    // res.send('subida');
   },
+  
   settings: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     res.render("settings", {
