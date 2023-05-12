@@ -5,44 +5,55 @@
 <%- include('partials/sidebar.ejs')%>
 
     <div class="main-content">
-        <div class="content">
-            <div class="main-header">
-                <div class="main-header-title">
-                    <h2>Settings</h2>
-                </div>
-                <div class="main-header-body">
-                    <p><%= fullname%></p>
-                </div>
-            </div>
-            <div class="main-body">
-                <div class="main-body-left">
-                    <p>Add your cell phone number</p>
-                    <div class="form">
-                        <form action="">
-                            <div class="input-number">
-                                <input type="number" class="form-control"
-                                    aria-label="Dollar amount (with dot and two decimal places)" name="telefono" required placeholder="Enter your phone number">
+        
+                <div class="content">
+                    <div class="main-header">
+                        <div class="main-header-title">
+                            <h2>Settings</h2>
+                        </div>
+                        <div class="main-header-body">
+                            <p>
+                                <%= fullname%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="main-body">
+                        <div class="main-body-left">
+                            <p>Add your cell phone number</p>
+                            <div class="form">
+                                <form action="/settings" method="post">
+                                    <div class="input-number input">
+                                        <input type="number" class="form-control"
+                                            aria-label="Dollar amount (with dot and two decimal places)" name="telefono"
+                                             placeholder="Enter your phone number">
+                                    </div>
+                                    <div class="input-email input">
+                                        <input type="email" class="form-control"
+                                            aria-label="Dollar amount (with dot and two decimal places)" name="email"
+                                             placeholder="Enter your email">
+                                    </div>
+                                    <div class="input-submit">
+                                        <input type="submit" class="btn btn-primary" value="Send">
+                                    </div>
+                                </form>
                             </div>
-                            <div class="input-submit">
-                                <input type="submit" class="btn btn-primary" value="Send">
+                        </div>
+                        
+                        <div class="main-body-right">
+                            <p>you can </p>
+                            <div class="form">
+                                <form action="">
+                                    <div class="input-number">
+                                        <input type="number" class="form-control"
+                                            aria-label="Dollar amount (with dot and two decimal places)" name="telefono"
+                                            required placeholder="Enter your phone number">
+                                    </div>
+                                    <div class="input-submit">
+                                        <input type="submit" class="btn btn-primary" value="Send">
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-                <div class="main-body-right">
-                    <p>you can </p>
-                    <div class="form">
-                        <form action="">
-                            <div class="input-number">
-                                <input type="number" class="form-control"
-                                    aria-label="Dollar amount (with dot and two decimal places)" name="telefono"  required placeholder="Enter your phone number">
-                            </div>
-                            <div class="input-submit">
-                                <input type="submit" class="btn btn-primary" value="Send">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>

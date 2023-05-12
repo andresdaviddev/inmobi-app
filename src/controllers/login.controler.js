@@ -21,11 +21,9 @@ const controller = {
       ]);
 
       if (results.length > 0) {
-        // Las credenciales son correctas, por lo que redirecciona al usuario a la página "profile"
         req.session.username = persona.username;
-        res.redirect("/");
+        res.redirect("home");
       } else {
-        // Las credenciales son incorrectas, por lo que renderiza la página de inicio de sesión nuevamente
         req.flash("error_msg", "Usuario y/o contraseñas incorrectos");
         res.redirect("login");
       }
