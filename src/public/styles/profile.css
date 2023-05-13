@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  position: absolute;
+  width: calc(100% - 240px);
+  height: 100%;
+  /* background-color: lightgreen; */
+  right: 0;
+}
+
+.main-info {
+  width: 58%;
+  height: 100%;
+  /* outline: 1px solid #000; */
+}
+
+.info-user {
+  position: fixed;
+  display: flex;
+  width: 54%;
+  height: 38%;
+  /* outline: 1px solid #000; */
+  justify-content: space-evenly;
+}
+
+.foto-user {
+  display: flex;
+  height: 100%;
+  width: 35%;
+  /* background-color: lightgoldenrodyellow; */
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.user-data {
+  display: grid;
+  height: 100%;
+  width: 60%;
+  /* background-color: lightslategray; */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    " d d d d"
+    "username username name name"
+    "settings settings contact contact";
+  user-select: none;
+}
+
+.username {
+  grid-area: username;
+}
+
+.name {
+  grid-area: name;
+}
+
+.settings {
+  grid-area: settings;
+  text-decoration: none;
+  color: #000;
+}
+
+.contact {
+  grid-area: contact;
+  color: #000;
+  text-decoration: none;
+}
+/* ---------------------------- */
+.main-posts {
+  display: flex;
+  width: 42%;
+  /* outline: .2px solid #000; */
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.card-content {
+  margin-bottom: 60px;
+}
+
+.card-title::before{
+  content: 'Price: ';
+}

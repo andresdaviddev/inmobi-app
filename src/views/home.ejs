@@ -1,6 +1,7 @@
 <!-- <%- include('partials/header')%> -->
 <link rel="stylesheet" href="styles/home.css">
 <link rel="stylesheet" href="styles/card-pubs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <link rel="shortcut icon" href="images/logo.jpeg">
@@ -18,18 +19,22 @@
         <div class="pubs-content">
 
             <% for(let i=0; i < posts.length; i++){%>
-                <div class="card-content">
-                  <div class="card" style="width: 18rem;">
-                    <img src="<%= posts[i].foto%>" class="card-img-top" alt="logo">
-                    <div class="card-body">
-                      <h5 class="card-title" id="title"><%= posts[i].precio%></h5>
-                      <p class="card-text"><%= posts[i].descripcion%></p>
-                      <a href="#" class="btn btn-primary">See</a>
+                <div class="card-content animate__animated animate__backInDown">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<%= posts[i].foto%>" class="card-img-top" alt="logo">
+                        <div class="card-body">
+                            <h5 class="card-title" id="title">
+                                <%= posts[i].precio%>
+                            </h5>
+                            <p class="card-text">
+                                <%= posts[i].descripcion%>
+                            </p>
+                            <a href="/profile/<%= posts[i].id_persona%>" class="btn btn-primary">View Profile</a>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              <% }%>
-              
+                <% }%>
+
 
         </div>
         <!-- crear nuevo post -->
@@ -37,7 +42,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <%=  fullname%>
+                        <%= fullname%>
                     </h5>
                     <p class="card-text">You can create a new post and others will see it</p>
                     <a href="/newpost" class="btn btn-primary">New Post</a>

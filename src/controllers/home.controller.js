@@ -2,6 +2,7 @@ const path = require("path");
 const statements = require("../db/statements");
 const conn = require("../db/bd.controller");
 const directorio = require("../dir");
+const { get } = require("http");
 const controller = {
   index: (req, res) => {
     res.render("index");
@@ -12,19 +13,50 @@ const controller = {
     const posts = await statements.getPosts(req, res);
     const foto = `uploads/`;
     console.log(posts);
-    const tamaño = posts.length;
+    // const tamaño = posts.length;
     res.render("home", {
       fullname: fullName.nombre + " " + fullName.apellido,
       posts: posts.map((post) => ({
         foto: foto + post.img,
         precio: post.precio,
         descripcion: post.descripcion,
+        id_persona: post.id_persona
       })),
     });
   },
 
-  profile: (req, res) => {
-    res.render("profile");
+  profile: async (req, res) => {
+    const postsUser = await statements.getPostsUser(req, res);
+    const getData = await statements.getFullName(req, res);
+    const foto = 'uploads/';
+    res.render("profile", {
+      usuario: getData.usuario,
+      nombre: getData.nombre,
+      apellido: getData.apellido,
+      postsUser: postsUser.map((post) => ({
+        foto: foto + post.img,
+        precio: post.precio,
+        descripcion: post.descripcion,
+      }))
+    });
+  },
+  profileId: async (req, res) => {
+    const profile = await statements.getProfileUser(req, res);
+    const data = profile.result;
+    const postsUser = profile.posts;
+    console.log(data);
+    const foto = 'uploads/';
+    // console.log(profile.posts);
+    res.render('profile',{
+      usuario: data[0].usuario,
+      nombre: data[0].nombre,
+      apellido: data[0].apellido,
+      postsUser: postsUser.map((post) => ({
+        foto: foto + post.img,
+        precio: post.precio,
+        descripcion: post.descripcion,
+      }))
+    });
   },
 
   newpost: (req, res) => {
