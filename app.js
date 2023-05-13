@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const session = require("express-session");
 const flash = require('connect-flash');
 const multer = require('multer');
+const {v4} = require('uuid');
 const path = require("path");
 const ejs = require("ejs");
 const app = express();
@@ -23,15 +24,37 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src/views"));
 app.use(express.static("src/public"));
 app.use(morgan("dev"));
+
+const storage = multer.diskStorage({
+  destination: path.join(__dirname, "src", "public", "uploads"),
+  filename: (req, file, cb) => {
+    const fileName = v4() + path.extname(file.originalname);
+    cb(null, fileName);
+  }
+})
+
 app.use(multer({
-  dest: path.join(__dirname + "/src/public/uploads")
+  storage,
+  fileFilter: (req, file, call)=>{
+    const fileTypes = /jpeg|png|jpg|gif/;
+    const mimeType = fileTypes.test(file.mimetype);
+    const extName = fileTypes.test(path.extname(file.originalname));
+    if (mimeType && extName) {
+      return call(null, true)
+    } else {
+      call('error');
+    }
+  }
+  
 }).single('image'))
+
 // express session
 app.use(session({
   secret: 'secret',
   resave: false,
   saveUninitialized: false
 }));
+
 // varibales globales
 app.use((req, res, next) => {
   res.locals.exito = req.flash('exito');

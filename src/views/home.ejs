@@ -17,19 +17,19 @@
         <!-- contenedor de las cards de las publicaiones -->
         <div class="pubs-content">
 
-            <% for(let i=0; i < 6; i++){%>
+            <% for(let i=0; i < posts.length; i++){%>
                 <div class="card-content">
-                    <div class="card" style="width: 18rem;">
-                        <img src="<%= img%>" class="card-img-top" alt="logo">
-                        <div class="card-body">
-                            <h5 class="card-title" id="title">70.000 USD</h5>
-                            <p class="card-text">Some quick example Lorem ipsum dolor sit amet consectetur adipislorem20
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">See</a>
-                        </div>
+                  <div class="card" style="width: 18rem;">
+                    <img src="<%= posts[i].foto%>" class="card-img-top" alt="logo">
+                    <div class="card-body">
+                      <h5 class="card-title" id="title"><%= posts[i].precio%></h5>
+                      <p class="card-text"><%= posts[i].descripcion%></p>
+                      <a href="#" class="btn btn-primary">See</a>
                     </div>
+                  </div>
                 </div>
-                <% }%>
+              <% }%>
+              
 
         </div>
         <!-- crear nuevo post -->

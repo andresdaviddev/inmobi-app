@@ -12,13 +12,13 @@ const controller = {
       username,
       password,
     };
-    const query = "SELECT * FROM persona WHERE usuario = ? AND contraseña = ?";
-    const results = await conn.query(query, [
+    const result = await conn.query("SELECT id_persona FROM persona WHERE usuario = ? AND contraseña = ?", [
       persona.username,
       persona.password,
     ]);
 
-    if (results.length > 0) {
+    if (result.length > 0) {
+      req.session.id_persona = result.id_persona;
       req.session.username = persona.username;
       res.redirect("home");
     } else {

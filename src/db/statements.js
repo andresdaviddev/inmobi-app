@@ -9,10 +9,14 @@ const statements = {
     );
     if (result.length > 0) {
       const { nombre, apellido, id_persona } = result[0];
-      return { nombre, apellido,id_persona };
+      return { nombre, apellido, id_persona };
     } else {
       return null;
     }
+  },
+  getPosts: async (req, res) => {
+    const posts = await conn.query("SELECT * from posts");
+    return posts;
   },
 };
 
