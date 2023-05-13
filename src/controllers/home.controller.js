@@ -40,24 +40,6 @@ const controller = {
       }))
     });
   },
-  profileId: async (req, res) => {
-    const profile = await statements.getProfileUser(req, res);
-    const data = profile.result;
-    const postsUser = profile.posts;
-    console.log(data);
-    const foto = 'uploads/';
-    // console.log(profile.posts);
-    res.render('profile',{
-      usuario: data[0].usuario,
-      nombre: data[0].nombre,
-      apellido: data[0].apellido,
-      postsUser: postsUser.map((post) => ({
-        foto: foto + post.img,
-        precio: post.precio,
-        descripcion: post.descripcion,
-      }))
-    });
-  },
 
   newpost: (req, res) => {
     res.render("newpost");

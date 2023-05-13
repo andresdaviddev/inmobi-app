@@ -8,8 +8,6 @@ app.get("/home", controller.home);
 
 app.get("/profile", controller.profile);
 
-app.get("/profile/:id",controller.profileId);
-
 app.get("/newpost", controller.newpost);
 
 app.post("/newpost", controller.newpostPost);

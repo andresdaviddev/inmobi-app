@@ -23,13 +23,8 @@ const statements = {
     const id_persona = req.session.id_persona;
     const posts = await conn.query("SELECT * FROM posts WHERE id_persona = ?",[id_persona]);
     return posts;
-  },
-  getProfileUser: async(req, res)=>{
-    const id_persona = req.params.id;
-    const result = await conn.query('SELECT * FROM persona WHERE id_persona = ?',[id_persona]);
-    const posts = await conn.query("SELECT * FROM posts WHERE id_persona = ?",[id_persona]);
-    return {result, posts};
   }
+  
 };
 
 module.exports = statements;
