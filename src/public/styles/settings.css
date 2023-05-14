@@ -54,29 +54,21 @@
     flex-direction: column;
     justify-content: center;
     padding: 10px;
+    /* outline: 1px solid #000; */
 }
 
 .main-body-right{
     display: flex;
-    user-select: none;
     width: 50%;
     height: calc(100% - 120px);
-    flex-direction: column;
+    /* outline: 1px solid gray; */
     justify-content: center;
-    padding: 10px;
+    align-items: center;
 }
 
 .btn{
     width: 120px;
-    margin-top: 50px;
 }
-
-.input{
-    margin-top: 50px;
-}
-
-#img{
-    margin-top: 20px;
-    max-width: 200px;
-    max-height: 200px;
-}
+ .input{
+    margin-bottom: 20px;
+ }

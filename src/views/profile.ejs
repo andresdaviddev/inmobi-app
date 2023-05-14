@@ -22,8 +22,8 @@
                         <p class="name">
                             <%= nombre + '  ' + apellido%>
                         </p>
-                        <a href="/settings" class="settings">Settings</a>
-                        <a href="#" class="contact">Contact</a>
+                        <a href="/settings" class="settings btn btn-secondary" style="width: 120px; height: 35px;">Settings</a>
+                        <a href="https://wa.me/<%=telefono%>?text=holawe" class="contact btn btn-success" target="_blank" style="width: 120px; height: 35px;">Contact</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,8 @@
                     <div class="card-body">
                       <h5 class="card-title" id="title"><%= postsUser[i].precio%></h5>
                       <p class="card-text"><%= postsUser[i].descripcion%></p>
-                      <a href="/<%= postsUser[i].id_post%>" class="btn btn-danger">Delete</a>
+                      
+                      <a href="#" class="btn btn-danger">Delete</a>
                       <a href="#" class="btn btn-secondary" style="width: 70px;">Edit</a>
                     </div>
                   </div>

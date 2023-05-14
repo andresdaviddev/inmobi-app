@@ -6,58 +6,70 @@
 <%- include('partials/sidebar.ejs')%>
 
     <div class="main-content">
-        
-                <div class="content">
-                    <div class="main-header">
-                        <div class="main-header-title">
-                            <h2>Settings</h2>
-                        </div>
-                        <div class="main-header-body">
-                            <p>
-                                <%= fullname%>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="main-body">
-                        <div class="main-body-left">
-                            <p>Add your cell phone number</p>
-                            <div class="form">
-                                <form action="/settings" method="post">
-                                    <div class="input-number input">
-                                        <input type="number" class="form-control"
-                                            aria-label="Dollar amount (with dot and two decimal places)" name="telefono"
-                                             placeholder="Enter your phone number">
-                                    </div>
-                                    <div class="input-email input">
-                                        <input type="email" class="form-control"
-                                            aria-label="Dollar amount (with dot and two decimal places)" name="email"
-                                             placeholder="Enter your email">
-                                    </div>
-                                    <div class="input-submit">
-                                        <input type="submit" class="btn btn-primary" value="Send">
-                                    </div>
-                                </form>
+
+        <div class="content">
+            <div class="main-header">
+                <div class="main-header-title">
+                    <h2>Settings</h2>
+                </div>
+                <div class="main-header-body">
+                    <p>
+                        <%= fullname%>
+                    </p>
+                </div>
+            </div>
+            <div class="main-body">
+                <div class="main-body-left">
+                    <p class="card-text text-center">Add or edit your datas</p>
+                    <div class="form">
+                        <form action="/settings" method="post" id="form">
+
+                            <div class="input-text input">
+                                <input type="text" class="form-control w-100"
+                                    aria-label="Dollar amount (with dot and two decimal places)" name="nombre"
+                                    placeholder="Enter your name" value="<%= nombre%>">
                             </div>
-                        </div>
-                        
-                        <div class="main-body-right">
-                            <p>Add a profile photo</p>
-                            <div class="form">
-                                <form action="" enctype="multipart/form-data">
-                                    <div class="input-number">
-                                        <input type="file" name="image" id="file" class="form-control"
-                                            aria-label="Dollar amount (with dot and two decimal places)">
-                                    </div>
-                                    <div class="img-preview">
-                                        <img src="" alt="img" id="img">
-                                    </div>
-                                    <div class="input-submit">
-                                        <input type="submit" class="btn btn-primary" value="Send">
-                                    </div>
-                                </form>
+
+                            <div class="input-text input">
+                                <input type="text" class="form-control w-100"
+                                    aria-label="Dollar amount (with dot and two decimal places)" name="apellido"
+                                    placeholder="Enter your last name" value="<%= apellido%>">
                             </div>
-                        </div>
+
+                            <div class="input-number input">
+                                <input type="number" class="form-control w-100"
+                                    aria-label="Dollar amount (with dot and two decimal places)" name="telefono"
+                                    placeholder="Enter your phone number" value="<%=telefono%>">
+                            </div>
+
+                            <div class="input-email input">
+                                <input type="email" class="form-control w-100"
+                                    aria-label="Dollar amount (with dot and two decimal places)" name="correo"
+                                    placeholder="Enter your email" value="<%= correo%>">
+                            </div>
+
+                            <div class="input-text input">
+                                <input type="text" class="form-control w-100"
+                                    aria-label="Dollar amount (with dot and two decimal places)" name="usuario"
+                                    placeholder="Enter your user" value="<%= usuario%>">
+                            </div>
+
+                            <div class="input-text input">
+                                <input type="password" class="form-control w-100"
+                                    aria-label="Dollar amount (with dot and two decimal places)" name="contraseña"
+                                    placeholder="Enter your password" value="<%= contraseña%>">
+                            </div>
+
+                        </form>
                     </div>
                 </div>
+
+                <div class="main-body-right ">
+                    <div class="input-submit">
+                        <input type="submit" class="btn btn-danger" form="form" value="Edit">
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-    

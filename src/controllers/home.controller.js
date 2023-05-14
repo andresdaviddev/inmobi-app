@@ -26,11 +26,13 @@ const controller = {
   profile: async (req, res) => {
     const postsUser = await statements.getPostsUser(req, res);
     const getData = await statements.getFullName(req, res);
+    console.log(getData);
     const foto = "uploads/";
     res.render("profile", {
       usuario: getData.usuario,
       nombre: getData.nombre,
       apellido: getData.apellido,
+      telefono: getData.telefono,
       postsUser: postsUser.map((post) => ({
         foto: foto + post.img,
         precio: post.precio,
@@ -43,15 +45,6 @@ const controller = {
   newpost: (req, res) => {
     res.render("newpost");
   },
-
-  deltePostsGet: (req, res)=>{
-    res.render('eliminar');
-  },
-
-  deltePostsPost: (req,res)=>{
-
-  },
-
   newpostPost: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     const id_persona = fullName.id_persona;
@@ -68,26 +61,35 @@ const controller = {
     } else {
       res.send("error ");
     }
-    // console.log(req.file);
-    // res.send('subida');
   },
   // <--------------------------------------------> settings
   settings: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     res.render("settings", {
       fullname: fullName.nombre + " " + fullName.apellido,
+      nombre: fullName.nombre,
+      apellido: fullName.apellido,
+      usuario: fullName.usuario,
+      contraseña: fullName.contraseña,
+      telefono: fullName.telefono,
+      correo: fullName.correo
     });
   },
 
   settingsPost: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     const id = fullName.id_persona;
+    const nombre = req.body.nombre;
+    const apellido = req.body.apellido;
     const telefono = req.body.telefono;
-    const email = req.body.email;
+    const correo = req.body.correo;
+    const usuario = req.body.usuario;
+    const contraseña = req.body.contraseña;
     const result = await conn.query(
-      "UPDATE persona SET telefono=?, correo=? WHERE id_persona=?",
-      [telefono, email, id]
+      "UPDATE persona SET nombre=?, apellido=?, telefono=?, correo=?, usuario=?, contraseña=? WHERE id_persona=?",
+      [nombre, apellido,telefono,correo,usuario,contraseña, id]
     );
+    // console.log(result);
     if (result.affectedRows > 0) {
       res.redirect("home");
     } else {

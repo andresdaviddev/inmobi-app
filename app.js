@@ -11,8 +11,8 @@ const app = express();
 const port = 3000;
 const conn = require("./src/db/bd.controller");
 // requiriendo vistas
-const rutalogin = require("./src/routes/login.route");
-const rutahome = require("./src/routes/home.route");
+const rutalogin = require("./src/routes/login.routes");
+const rutahome = require("./src/routes/home.routes");
 
 // flash
 app.use(flash());
