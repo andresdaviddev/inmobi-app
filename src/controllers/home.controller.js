@@ -2,7 +2,6 @@ const path = require("path");
 const statements = require("../db/statements");
 const conn = require("../db/bd.controller");
 const directorio = require("../dir");
-const { get } = require("http");
 const controller = {
   index: (req, res) => {
     res.render("index");
@@ -12,23 +11,22 @@ const controller = {
     const fullName = await statements.getFullName(req, res);
     const posts = await statements.getPosts(req, res);
     const foto = `uploads/`;
-    console.log(posts);
-    // const tamaño = posts.length;
+    // console.log(posts);
     res.render("home", {
       fullname: fullName.nombre + " " + fullName.apellido,
       posts: posts.map((post) => ({
         foto: foto + post.img,
         precio: post.precio,
         descripcion: post.descripcion,
-        id_persona: post.id_persona
+        id_persona: post.id_persona,
       })),
     });
   },
-
+  // <-----------------------------> profile
   profile: async (req, res) => {
     const postsUser = await statements.getPostsUser(req, res);
     const getData = await statements.getFullName(req, res);
-    const foto = 'uploads/';
+    const foto = "uploads/";
     res.render("profile", {
       usuario: getData.usuario,
       nombre: getData.nombre,
@@ -37,14 +35,23 @@ const controller = {
         foto: foto + post.img,
         precio: post.precio,
         descripcion: post.descripcion,
-      }))
+        id_post: post.id_post,
+      })),
     });
   },
-
+  //  <----------------------------> crear un nuevo post
   newpost: (req, res) => {
     res.render("newpost");
   },
-  // insercion de un nuevo post
+
+  deltePostsGet: (req, res)=>{
+    res.render('eliminar');
+  },
+
+  deltePostsPost: (req,res)=>{
+
+  },
+
   newpostPost: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     const id_persona = fullName.id_persona;
@@ -64,14 +71,14 @@ const controller = {
     // console.log(req.file);
     // res.send('subida');
   },
-
+  // <--------------------------------------------> settings
   settings: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     res.render("settings", {
       fullname: fullName.nombre + " " + fullName.apellido,
     });
   },
-  // subir correo y telefono
+
   settingsPost: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     const id = fullName.id_persona;

@@ -74,3 +74,9 @@
 .input{
     margin-top: 50px;
 }
+
+#img{
+    margin-top: 20px;
+    max-width: 200px;
+    max-height: 200px;
+}

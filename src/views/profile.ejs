@@ -9,7 +9,7 @@
 </head>
 <body>
     <%- include('partials/sidebar')%>
-        <div class="main-container animate__animated animate__backInDown">
+        <div class="main-container ">
             <div class="main-info">
                 <div class="info-user">
                     <div class="foto-user">
@@ -30,13 +30,14 @@
             <div class="main-posts">
                 
             <% for(let i=0; i < postsUser.length; i++){%>
-            <div class="card-content"> 
+            <div class="card-content animate__animated animate__backInDown"> 
                   <div class="card" style="width: 18rem;">
                     <img src="<%= postsUser[i].foto%>" class="card-img-top" alt="logo">
                     <div class="card-body">
                       <h5 class="card-title" id="title"><%= postsUser[i].precio%></h5>
                       <p class="card-text"><%= postsUser[i].descripcion%></p>
-                      <a href="#" class="btn btn-danger">Delete</a>
+                      <a href="/<%= postsUser[i].id_post%>" class="btn btn-danger">Delete</a>
+                      <a href="#" class="btn btn-secondary" style="width: 70px;">Edit</a>
                     </div>
                   </div>
                 </div>

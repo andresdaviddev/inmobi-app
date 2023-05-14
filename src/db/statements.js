@@ -8,7 +8,7 @@ const statements = {
       [username]
     );
     if (result.length > 0) {
-      const { nombre, apellido, id_persona,usuario } = result[0];
+      const { nombre, apellido, id_persona, usuario } = result[0];
       req.session.id_persona = id_persona;
       return { nombre, apellido, id_persona, usuario };
     } else {
@@ -23,7 +23,8 @@ const statements = {
     const id_persona = req.session.id_persona;
     const posts = await conn.query("SELECT * FROM posts WHERE id_persona = ?",[id_persona]);
     return posts;
-  }
+  },
+  
   
 };
 
