@@ -16,4 +16,6 @@ app.get("/settings", controller.settings);
 
 app.post("/settings", controller.settingsPost);
 
+app.get("/eliminar/:id",controller.delete);
+
 module.exports = app;

@@ -2,6 +2,8 @@ const path = require("path");
 const statements = require("../db/statements");
 const conn = require("../db/bd.controller");
 const directorio = require("../dir");
+const fs = require("fs");
+const { dir } = require("console");
 const controller = {
   index: (req, res) => {
     res.render("index");
@@ -26,7 +28,7 @@ const controller = {
   profile: async (req, res) => {
     const postsUser = await statements.getPostsUser(req, res);
     const getData = await statements.getFullName(req, res);
-    console.log(getData);
+    // console.log(getData);
     const foto = "uploads/";
     res.render("profile", {
       usuario: getData.usuario,
@@ -72,7 +74,7 @@ const controller = {
       usuario: fullName.usuario,
       contraseña: fullName.contraseña,
       telefono: fullName.telefono,
-      correo: fullName.correo
+      correo: fullName.correo,
     });
   },
 
@@ -87,7 +89,7 @@ const controller = {
     const contraseña = req.body.contraseña;
     const result = await conn.query(
       "UPDATE persona SET nombre=?, apellido=?, telefono=?, correo=?, usuario=?, contraseña=? WHERE id_persona=?",
-      [nombre, apellido,telefono,correo,usuario,contraseña, id]
+      [nombre, apellido, telefono, correo, usuario, contraseña, id]
     );
     // console.log(result);
     if (result.affectedRows > 0) {
@@ -95,6 +97,18 @@ const controller = {
     } else {
       res.send("error");
     }
+  },
+  delete: async (req, res) => {
+    const id_post = req.params.id;
+    const getPost = await conn.query("SELECT * FROM posts WHERE id_post = ?", [id_post]);
+    const result = await conn.query("DELETE FROM posts WHERE id_post = ?", [id_post]);
+    const img = directorio + "/" + getPost[0].img;
+
+    if (result.affectedRows > 0) {
+      fs.unlinkSync(img);
+      res.redirect("/profile");
+    }
+
   },
 };
 
