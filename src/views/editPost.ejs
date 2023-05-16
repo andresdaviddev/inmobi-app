@@ -13,25 +13,25 @@
     <div class="content-main">
         <div class="form-content">
 
-            <form action="/newpost" method="post" enctype="multipart/form-data">
+            <form action="/post/:id" method="post" enctype="multipart/form-data">
                 <!-- cargar imagen -->
                 <div class="input-file">
                     <label class="" for="inputGroupFile01">Upload Image</label>
-                    <input type="file" class="form-control" id="file" name="image" required>
+                    <input type="file" class="form-control" id="file"  name="image" required>
                 </div>
                 <div class="img-preview">
-                    <img src="" alt="img" id="img">
+                    <img src="" alt="img"  id="img">
                 </div>
                 <!-- price -->
                 <div class="input-number">
                     <span class="">Price: </span>
                     <input type="number" class="form-control"
-                        aria-label="Dollar amount (with dot and two decimal places)" name="price" required>
+                        aria-label="Dollar amount (with dot and two decimal places)" name="price" value="<%= post[0].precio%>" required>
                 </div>
                 <!-- text area ( descripcion) -->
                 <div class="input-text-area">
                     <span class="" id="text-area">Description</span>
-                    <textarea class="form-control" aria-label="With textarea" name="descripcion"  required></textarea>
+                    <textarea class="form-control" aria-label="With textarea" name="descripcion" id="text-area" required></textarea>
                 </div>
                 <!-- input submit -->
                 <div class="input-submit">

@@ -18,4 +18,8 @@ app.post("/settings", controller.settingsPost);
 
 app.get("/eliminar/:id",controller.delete);
 
+app.get("/post/:id", controller.editPostGet);
+
+app.post("/post/:id", controller.editPost);
+
 module.exports = app;

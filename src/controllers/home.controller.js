@@ -12,7 +12,9 @@ const controller = {
   home: async (req, res) => {
     const fullName = await statements.getFullName(req, res);
     const posts = await statements.getPosts(req, res);
+    // const persona = await conn.query('SELECT * FROM persona WHERE id_persona = ?',[posts[0].id_persona]);
     const foto = `uploads/`;
+    // console.log(persona);
     // console.log(posts);
     res.render("home", {
       fullname: fullName.nombre + " " + fullName.apellido,
@@ -21,7 +23,10 @@ const controller = {
         precio: post.precio,
         descripcion: post.descripcion,
         id_persona: post.id_persona,
+        id_post: post.id_post,
+        // usuario: persona[0].usuario,
       })),
+      
     });
   },
   // <-----------------------------> profile
@@ -100,15 +105,56 @@ const controller = {
   },
   delete: async (req, res) => {
     const id_post = req.params.id;
-    const getPost = await conn.query("SELECT * FROM posts WHERE id_post = ?", [id_post]);
-    const result = await conn.query("DELETE FROM posts WHERE id_post = ?", [id_post]);
+    const getPost = await conn.query("SELECT * FROM posts WHERE id_post = ?", [
+      id_post,
+    ]);
+    const result = await conn.query("DELETE FROM posts WHERE id_post = ?", [
+      id_post,
+    ]);
     const img = directorio + "/" + getPost[0].img;
 
     if (result.affectedRows > 0) {
       fs.unlinkSync(img);
       res.redirect("/profile");
     }
+  },
+  editPostGet: async (req, res) => {
+    const id_post = req.params.id;
+    const post = await conn.query("SELECT * FROM posts WHERE id_post = ?", [
+      id_post,
+    ]);
+    const foto = path.join(directorio, post[0].img);
+    req.session.id_post = post[0].id_post;
+    // console.log(foto);
+    res.render("editPost", {
+      post: post.map((post) => ({
+        img: foto,
+        precio: post.precio,
+        descripcion: post.descripcion,
+        id_persona: post.id_persona,
+        id_post: post.id_post,
+      })),
+    });
+  },
+  editPost: async (req, res) => {
+    const id_post = req.session.id_post;
+    const post = await conn.query("SELECT * FROM posts WHERE id_post = ?", [
+      id_post,
+    ]);
+    const imgDeleted = path.join(directorio, post[0].img);
+    // -------------------------------------------------->
+    const img = req.file.filename;
+    const precio = req.body.price;
+    const descripcion = req.body.descripcion;
+    const result = await conn.query(
+      "UPDATE posts set img=?, precio=?, descripcion=? WHERE id_post = ?",
+      [img, precio, descripcion, id_post]
+    );
 
+    if (result.affectedRows > 0) {
+      fs.unlinkSync(imgDeleted);
+      res.redirect("/profile");
+    }
   },
 };
 

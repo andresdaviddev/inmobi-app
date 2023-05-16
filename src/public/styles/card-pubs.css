@@ -10,6 +10,10 @@
   background-color: #e0e1dd;
 }
 
+.card-content{
+  margin-bottom: 80px;
+}
+
 .btn{
   width: 120px;
 }
