@@ -26,7 +26,7 @@ const controller = {
         id_post: post.id_post,
         // usuario: persona[0].usuario,
       })),
-      
+
     });
   },
   // <-----------------------------> profile
@@ -156,6 +156,29 @@ const controller = {
       res.redirect("/profile");
     }
   },
+  profileUserGet: async (req, res) => {
+    const id_persona = req.params.id;
+    const result = await conn.query('SELECT * FROM persona WHERE id_persona = ?', [id_persona]);
+    const nombre = result[0].nombre;
+    const apellido = result[0].apellido;
+    const telefono = result[0].telefono;
+    const usuario = result[0].usuario;
+    // seleccioonado los posts del usuario
+    const postsUser = await conn.query('SELECT * FROM posts WHERE id_persona = ?', [id_persona]);
+    // console.log(path.join(directorio, postsUser[0].img));
+    res.render('profileUser', {
+      nombre,
+      apellido,
+      telefono,
+      usuario,
+      postsUser: postsUser.map((post) => ({
+        foto: '/uploads/' + post.img,
+        precio: post.precio,
+        descripcion: post.descripcion,
+        id_post: post.id_post,
+      })),
+    })
+  }
 };
 
 module.exports = controller;

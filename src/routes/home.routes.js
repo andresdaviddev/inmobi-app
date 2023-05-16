@@ -22,4 +22,6 @@ app.get("/post/:id", controller.editPostGet);
 
 app.post("/post/:id", controller.editPost);
 
+app.get("/profile/:id", controller.profileUserGet);
+
 module.exports = app;
