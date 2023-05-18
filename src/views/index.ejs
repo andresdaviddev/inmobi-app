@@ -1,35 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="shortcut icon" href="images/logo.jpeg" />
     <link rel="stylesheet" href="styles/index.css">
     <title>Inmobi</title>
 </head>
+
 <body>
-    <header>
-        <div class="nav-bar">
-            <div class="links">
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="/login">LogIn</a></li>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary w-100 user-select-none">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Inmobi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Inmobi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#posts">Posts</a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </header>
+    </nav>
+
     <section id="about">
         <div class="left-side">
-            <img src="images/logo.jpeg" alt="logo">
-            <div class="info">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione fuga impedit veniam. Illum, impedit alias suscipit optio modi dicta reiciendis aspernatur incidunt culpa sit nemo accusantium commodi ea iusto a nam laborum? Minima itaque adipisci quas nam cumque est deserunt!</p>
-                <button><a href="/signup">Get Started</a></button>
-            </div>
+            <img src="images/logo2.jpeg" alt="logo">
         </div>
         <div class="right-side">
+            <div class="info">
+                <p>Welcome to our real estate social network!
 
+                    On our platform, we offer you a dynamic and vibrant community where users can connect, share and
+                    discover exciting real estate opportunities. Whether you are looking to sell, rent or buy a
+                    property, here you will find everything you need in one place.
+
+                    Our goal is to provide you with a hassle-free and interactive experience where you can easily list
+                    your property and reach a wide audience of potential buyers or renters. In addition, our social
+                    network is designed to foster interaction and collaboration among users, allowing you to connect
+                    with trusted real estate agents, market experts, and other property owners who share your interests
+                    and needs.</p>
+                <button><a class="btn btn-primary text-white" href="/signup">Get Started</a></button>
+            </div>
         </div>
     </section>
+    <section id="posts" class="w-100 user-select-none">
+        <div id="carouselExampleIndicators" class="carousel slide w-75 mt-5 m-auto">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/apartamento.jpg" id="carrusel-img" class="d-block w-100 object-fit-cover"
+                        alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/apartamento2.jpg" id="carrusel-img" class="d-block w-100 object-fit-cover"
+                        alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/apartamento3.jpg" id="carrusel-img" class="d-block w-100 object-fit-cover"
+                        alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

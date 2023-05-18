@@ -178,7 +178,8 @@ const controller = {
         id_post: post.id_post,
       })),
     })
-  }
+  },
+ 
 };
 
 module.exports = controller;
