@@ -13,13 +13,7 @@ body {
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(68, 136, 238, 1) 100%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: #48e;
 }
 /*carta trasera */
 .back-card {
@@ -107,8 +101,6 @@ input[name="password"]:focus {
 input[type="submit"] {
   width: 150px;
   height: 35px;
-  border: 2px solid #48e;
-  border-radius: 3px;
   transition: all 0.6s;
   font-weight: 700;
 }

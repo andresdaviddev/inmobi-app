@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const session = require("express-session");
 const flash = require('connect-flash');
 const multer = require('multer');
-const {v4} = require('uuid');
+const { v4 } = require('uuid');
 const path = require("path");
 const ejs = require("ejs");
 const app = express();
@@ -13,6 +13,13 @@ const conn = require("./src/db/bd.controller");
 // requiriendo vistas
 const rutalogin = require("./src/routes/login.routes");
 const rutahome = require("./src/routes/home.routes");
+
+// express session
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: false
+}));
 
 // flash
 app.use(flash());
@@ -35,7 +42,7 @@ const storage = multer.diskStorage({
 
 app.use(multer({
   storage,
-  fileFilter: (req, file, call)=>{
+  fileFilter: (req, file, call) => {
     const fileTypes = /jpeg|png|jpg|gif/;
     const mimeType = fileTypes.test(file.mimetype);
     const extName = fileTypes.test(path.extname(file.originalname));
@@ -45,19 +52,13 @@ app.use(multer({
       call('error');
     }
   }
-  
-}).single('image'))
 
-// express session
-app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: false
-}));
+}).single('image'))
 
 // varibales globales
 app.use((req, res, next) => {
-  res.locals.exito = req.flash('exito');
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error = req.flash('error');
   res.locals.error_msg = req.flash('error_msg');
   next();
 });

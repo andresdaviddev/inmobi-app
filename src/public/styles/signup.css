@@ -13,13 +13,8 @@ body {
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(68, 136, 238, 1) 100%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: #48e;
+ 
 }
 
 .back-card {
@@ -70,6 +65,7 @@ body {
   width: 100%;
   height: 400px;
   margin-bottom: 10px;
+  border: none;
   /* outline: 1px solid black; */
 }
 
@@ -128,22 +124,9 @@ input[name="passwordsignup"]:focus {
   outline: 0 !important;
 }
 
-input[name="mailsignup"] {
-  height: 40px;
-  width: 90%;
-  border: 2px solid #48e;
-  border-radius: 5px;
-}
-
-input[name="mailsignup"]:focus {
-  outline: 0 !important;
-}
-
 input[type="submit"] {
   width: 150px;
   height: 35px;
-  border: 2px solid #48e;
-  border-radius: 3px;
   transition: all 0.6s;
   font-weight: 700;
 }
@@ -155,7 +138,8 @@ input[type="submit"]:hover {
 /* <----------( final )-------------> */
 
 /* alertas */
-#success-alert {
+
+.alert {
   display: flex;
   height: 70px;
   position: absolute;
@@ -165,4 +149,13 @@ input[type="submit"]:hover {
   align-items: center;
   font-weight: 700;
   z-index: 9999;
+}
+
+.alert > a{
+  text-decoration: none;
+  color: #000;
+}
+
+.alert > a::before{
+  content: 'ㅤ';
 }
